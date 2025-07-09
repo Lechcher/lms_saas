@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
+import NavBar from "@/components/NavBar";
 import { ClerkProvider } from "@clerk/nextjs";
 
 const bricolage = Bricolage_Grotesque({
@@ -23,7 +23,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={`${bricolage.variable} antialiased`}>
-          <Header />
+          <NavBar />
           {children}
         </body>
       </html>
