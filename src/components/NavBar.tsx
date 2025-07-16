@@ -1,7 +1,10 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import NavItems from "@/components/NavItems";
+import Auth from "@/components/Auth";
 
 const NavBar = () => {
   return (
@@ -20,6 +23,7 @@ const NavBar = () => {
 
         <div className="flex items-center gap-8 ">
           <NavItems />
+          <Auth />
         </div>
       </header>
     </>

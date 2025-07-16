@@ -1,7 +1,16 @@
+import CompanionForm from "@/components/CompanionForm";
+import { Textarea } from "@/components/ui/textarea";
 import React from "react";
 
 const NewCompanion = () => {
-  return <div>NewCompanion</div>;
+  return (
+    <main className="min-lg:w-1/3 min-md:w-2/3 items-center justify-center">
+      <article className="w-full gap-4 flex flex-col">
+        <h1>Companion Builder</h1>
+        <CompanionForm />
+      </article>
+    </main>
+  );
 };
 
 export default NewCompanion;
