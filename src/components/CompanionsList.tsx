@@ -2,7 +2,6 @@ import React from "react";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -39,7 +38,7 @@ const CompanionsList = ({
           {companions?.map(({ id, subject, name, topic, duration }) => (
             <TableRow key={id}>
               <TableCell>
-                <Link href={`/companions/${id}`}>
+                <Link href={`/companions/${id}`} className="flex gap-3">
                   <div
                     className={`size-[72px] flex items-center justify-center rounded-lg max-md:hidden`}
                     style={{
@@ -53,7 +52,7 @@ const CompanionsList = ({
                       height={35}
                     />
                   </div>
-                  <div className="flex flex-col gap-2">
+                  <div className="flex flex-col gap-2 line-clamp-1">
                     <p className="font-bold text-2xl">{name}</p>
                     <p className="text-lg">{topic}</p>
                   </div>
