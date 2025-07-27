@@ -34,9 +34,9 @@ const CompanionCard = ({
           </button>
         </div>
 
-        <h2 className="text-2xl font-bold">{name}</h2>
+        <h2 className="text-2xl font-bold line-clamp-1">{name}</h2>
 
-        <p className="text-sm">{topic}</p>
+        <p className="text-sm line-clamp-1">{topic}</p>
 
         <div className="flex items-center gap-2">
           <Image

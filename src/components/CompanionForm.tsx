@@ -26,8 +26,16 @@ import { createCompanion } from "@/lib/actions/companion.actions";
 import { redirect } from "next/navigation";
 
 const formSchema = z.object({
-  name: z.string().min(1, { message: "Companion name is required" }).trim(),
-  subject: z.string().min(1, { message: "Subject is required" }).trim(),
+  name: z
+    .string()
+    .min(1, { message: "Companion name is required" })
+    .max(30, { message: "Companion name must be less than 30 characters" })
+    .trim(),
+  subject: z
+    .string()
+    .min(1, { message: "Subject is required" })
+    .max(50, { message: "Subject must be less than 50 characters" })
+    .trim(),
   topic: z.string().min(1, { message: "Topic is required" }).trim(),
   voice: z.string().min(1, { message: "Voice is required" }).trim(),
   style: z.string().min(1, { message: "Style is required" }).trim(),
