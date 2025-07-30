@@ -11,6 +11,12 @@ import { cn, getSubjectColor } from "@/lib/utils";
 import Link from "next/link";
 import Image from "next/image";
 
+interface CompanionsListProps {
+  title: string;
+  companions?: Companion[];
+  className?: string;
+}
+
 const CompanionsList = ({
   title,
   companions,

@@ -80,9 +80,3 @@ interface CompanionCallProps {
   voice: string;
   style: string;
 }
-
-interface CompanionsListProps {
-  title: string;
-  companions?: Companion[];
-  className?: string;
-}

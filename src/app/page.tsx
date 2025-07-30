@@ -4,13 +4,18 @@ import CTA from "@/components/CTA";
 import React from "react";
 import {
   getAllCompanions,
+  getBookmarkedCompanions,
   getRecentSession,
 } from "@/lib/actions/companion.actions";
 import { getSubjectColor } from "@/lib/utils";
+import { currentUser } from "@clerk/nextjs/server";
 
 const HomePage = async () => {
+  const user = await currentUser();
+
   const companions = await getAllCompanions({ limit: 3 });
   const recentSessionsCompanions = await getRecentSession();
+  const bookmarkedCompanions = await getBookmarkedCompanions(user?.id);
 
   return (
     <main>
@@ -22,6 +27,9 @@ const HomePage = async () => {
             key={companion.id}
             {...companion}
             color={getSubjectColor(companion.subject)}
+            bookmarked={bookmarkedCompanions.some(
+              (bookmarkedCompanion) => bookmarkedCompanion.id === companion.id
+            )}
           />
         ))}
       </section>
