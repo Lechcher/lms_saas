@@ -1,3 +1,5 @@
+// This file contains global type definitions and interfaces used throughout the application.
+
 // type User = {
 //   name: string;
 //   email: string;
@@ -5,6 +7,9 @@
 //   accountId: string;
 // };
 
+/**
+ * Defines the available subjects for companions.
+ */
 enum Subject {
   maths = "maths",
   language = "language",
@@ -17,6 +22,9 @@ enum Subject {
   business = "business",
 }
 
+/**
+ * Represents a Companion object, extending a DocumentList with specific properties.
+ */
 type Companion = Models.DocumentList<Models.Document> & {
   $id: string;
   name: string;
@@ -26,6 +34,9 @@ type Companion = Models.DocumentList<Models.Document> & {
   bookmarked: boolean;
 };
 
+/**
+ * Interface for the data required to create a new companion.
+ */
 interface CreateCompanion {
   name: string;
   subject: string;
@@ -35,6 +46,9 @@ interface CreateCompanion {
   duration: number;
 }
 
+/**
+ * Interface for parameters used to retrieve all companions, including pagination and filtering.
+ */
 interface GetAllCompanions {
   limit?: number;
   page?: number;
@@ -42,11 +56,17 @@ interface GetAllCompanions {
   topic?: string | string[];
 }
 
+/**
+ * Interface for building a client, potentially for authentication or session management.
+ */
 interface BuildClient {
   key?: string;
   sessionToken?: string;
 }
 
+/**
+ * Interface for the data required to create a new user.
+ */
 interface CreateUser {
   email: string;
   name: string;
@@ -54,10 +74,16 @@ interface CreateUser {
   accountId: string;
 }
 
+/**
+ * Interface for search parameters, typically from a URL query.
+ */
 interface SearchParams {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
+/**
+ * Interface for Avatar component properties.
+ */
 interface Avatar {
   userName: string;
   width: number;
@@ -65,11 +91,17 @@ interface Avatar {
   className?: string;
 }
 
+/**
+ * Interface for a saved message, including its role and content.
+ */
 interface SavedMessage {
   role: "user" | "system" | "assistant";
   content: string;
 }
 
+/**
+ * Interface for properties passed to the CompanionCall component.
+ */
 interface CompanionCallProps {
   companionId: string;
   subject: string;

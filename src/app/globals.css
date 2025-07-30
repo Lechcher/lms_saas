@@ -1,9 +1,12 @@
+/* Import Google Fonts and Tailwind CSS */
 @import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Custom variant for dark mode */
 @custom-variant dark (&:is(.dark *));
 
+/* Root CSS variables for light theme colors and general styles */
 :root {
   --primary: #fe5933;
 
@@ -42,6 +45,7 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+/* Theme variables for inline usage */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -85,10 +89,12 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+/* Body font family */
 body {
   font-family: var(--font-bricolage);
 }
 
+/* Dark mode CSS variables */
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
@@ -123,6 +129,7 @@ body {
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* Base layer styles for global elements */
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -138,6 +145,7 @@ body {
   }
 }
 
+/* Components layer styles for reusable UI components */
 @layer components {
   .home-section {
     @apply flex gap-4 justify-between items-start w-full max-lg:flex-col-reverse max-lg:items-center;
@@ -215,6 +223,7 @@ body {
   }
 }
 
+/* Utilities layer styles for common helper classes */
 @layer utilities {
   .no-scrollbar::-webkit-scrollbar {
     display: none;
@@ -225,4 +234,5 @@ body {
   }
 }
 
+/* Clerk.js specific layer */
 @layer clerk;

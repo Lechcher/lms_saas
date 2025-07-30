@@ -1,15 +1,36 @@
+// This file contains utility functions for various purposes, including Tailwind CSS class merging,
+// subject color retrieval, and Vapi AI assistant configuration.
+
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { subjectsColors, voices } from "@/constants";
 import { CreateAssistantDTO } from "@vapi-ai/web/dist/api";
+
+/**
+ * Merges Tailwind CSS classes conditionally.
+ * @param inputs - Class values to merge.
+ * @returns A merged string of Tailwind CSS classes.
+ */
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+/**
+ * Retrieves the color associated with a given subject.
+ * @param subject - The subject name.
+ * @returns The hex color code for the subject.
+ */
 export const getSubjectColor = (subject: string) => {
   return subjectsColors[subject as keyof typeof subjectsColors];
 };
 
+/**
+ * Configures and returns a Vapi AI assistant object.
+ * The assistant's voice, transcriber, and model are set based on provided parameters and predefined constants.
+ * @param voice - The desired voice type (e.g., "male", "female").
+ * @param style - The desired voice style (e.g., "casual", "formal").
+ * @returns A CreateAssistantDTO object configured for the Vapi AI assistant.
+ */
 export const configureAssistant = (voice: string, style: string) => {
   const voiceId =
     voices[voice as keyof typeof voices][

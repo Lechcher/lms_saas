@@ -1,8 +1,13 @@
+// This component is a client-side component, indicated by "use client".
 "use client";
+
+// Import necessary React and form-related libraries.
 import React from "react";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { z } from "zod"; // Zod for schema validation.
+import { zodResolver } from "@hookform/resolvers/zod"; // Resolver for Zod with React Hook Form.
+import { useForm } from "react-hook-form"; // React Hook Form for form management.
+
+// Import UI components from the project's UI library.
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -20,11 +25,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
-import { subjects } from "@/constants";
+import { subjects } from "@/constants"; // Import predefined subjects.
 import { Textarea } from "./ui/textarea";
+
+// Import server-side actions for creating a companion and Next.js navigation.
 import { createCompanion } from "@/lib/actions/companion.actions";
 import { redirect } from "next/navigation";
 
+// Define the schema for the companion form using Zod.
+// This schema validates the input fields for creating a new companion.
 const formSchema = z.object({
   name: z
     .string()
@@ -42,7 +51,9 @@ const formSchema = z.object({
   duration: z.coerce.number().min(1, { message: "Duration is required" }),
 });
 
+// Define the CompanionForm functional component.
 const CompanionForm = () => {
+  // Initialize the form with React Hook Form, applying Zod for validation.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -54,19 +65,26 @@ const CompanionForm = () => {
       duration: 15,
     },
   });
+
+  // Handle form submission.
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    // Call the server action to create a companion.
     const companion = await createCompanion(values);
 
+    // Redirect based on the success of companion creation.
     if (companion) {
-      redirect(`/companions/${companion.id}`);
+      redirect(`/companions/${companion.id}`); // Redirect to the new companion's page.
     } else {
       console.log("Failed to create companion");
-      redirect("/");
+      redirect("/"); // Redirect to the home page on failure.
     }
   };
+
+  // Render the form.
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        {/* Form field for Companion Name */}
         <FormField
           control={form.control}
           name="name"
@@ -84,6 +102,8 @@ const CompanionForm = () => {
             </FormItem>
           )}
         />
+
+        {/* Form field for Subject (using a Select component) */}
         <FormField
           control={form.control}
           name="subject"
@@ -116,6 +136,8 @@ const CompanionForm = () => {
             </FormItem>
           )}
         />
+
+        {/* Form field for Topic (using a Textarea component) */}
         <FormField
           control={form.control}
           name="topic"
@@ -134,6 +156,7 @@ const CompanionForm = () => {
           )}
         />
 
+        {/* Form field for Voice (using a Select component) */}
         <FormField
           control={form.control}
           name="voice"
@@ -159,6 +182,8 @@ const CompanionForm = () => {
             </FormItem>
           )}
         />
+
+        {/* Form field for Style (using a Select component) */}
         <FormField
           control={form.control}
           name="style"
@@ -185,6 +210,7 @@ const CompanionForm = () => {
           )}
         />
 
+        {/* Form field for Duration (using an Input component for number) */}
         <FormField
           control={form.control}
           name="duration"
@@ -203,6 +229,8 @@ const CompanionForm = () => {
             </FormItem>
           )}
         />
+
+        {/* Submit button for the form */}
         <Button type="submit" className="w-full cursor-pointer">
           Build Your Companion
         </Button>
@@ -211,4 +239,5 @@ const CompanionForm = () => {
   );
 };
 
+// Export the CompanionForm component as the default export.
 export default CompanionForm;

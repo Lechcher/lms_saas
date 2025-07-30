@@ -1,13 +1,16 @@
-"use client";
+"use client"; // This directive marks the file as a Client Component
 
-import * as Sentry from "@sentry/nextjs";
-import NextError from "next/error";
-import { useEffect } from "react";
+// Import necessary modules
+import * as Sentry from "@sentry/nextjs"; // Sentry for error tracking
+import NextError from "next/error"; // Next.js default error page component
+import { useEffect } from "react"; // React hook for side effects
 
+// Define the GlobalError component, which handles global errors in the application
 export default function GlobalError({ error }: { error: Error & { digest?: string } }) {
+  // Use useEffect to capture exceptions with Sentry when an error occurs
   useEffect(() => {
     Sentry.captureException(error);
-  }, [error]);
+  }, [error]); // Dependency array ensures this runs when the error object changes
 
   return (
     <html>
