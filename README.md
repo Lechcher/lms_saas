@@ -1,5 +1,7 @@
 # Converso - Real-time AI Teaching Platform
 
+![Hero Image](./public/readme/hero.png)
+
 Converso is a cutting-edge AI teaching platform that provides real-time, interactive learning experiences through voice conversations with AI companions.
 
 ## Features
@@ -11,6 +13,8 @@ Converso is a cutting-edge AI teaching platform that provides real-time, interac
 - **Subscription Plans:** Upgrade your plan to unlock more companions and premium features.
 
 ## Getting Started
+
+![Thumbnail Image](./public/readme/thumbnail.png)
 
 To get started with Converso, you can explore the companion library, build your own personalized companion, and launch interactive voice lessons.
 
@@ -30,8 +34,4 @@ Launch a lesson with your chosen companion and engage in real-time voice convers
 
 ### Hero Image
 
-![Hero Image](./public/readme/hero.png)
-
 ### Thumbnail Image
-
-![Thumbnail Image](./public/readme/thumbnail.png)
