@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Converso - Real-time AI Teaching Platform
+
+Converso is a cutting-edge AI teaching platform that provides real-time, interactive learning experiences through voice conversations with AI companions.
+
+## Features
+
+- **Personalized Learning:** Build and customize AI companions with specific names, subjects, voices, and personalities.
+- **Real-time Voice Conversations:** Engage in natural and fun voice conversations with AI tutors.
+- **Subject-Specific Companions:** Access companions across various subjects like Maths, Language, Science, History, Coding, and Economics.
+- **Session Tracking:** Keep track of your learning journey with recent sessions and bookmarked companions.
+- **Subscription Plans:** Upgrade your plan to unlock more companions and premium features.
 
 ## Getting Started
 
-First, run the development server:
+To get started with Converso, you can explore the companion library, build your own personalized companion, and launch interactive voice lessons.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Companion Library
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Browse through a diverse collection of AI companions, filter them by subject and topic, and bookmark your favorites.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build Your Own Companion
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a new companion by defining its name, subject, topic, voice, style, and estimated session duration.
 
-## Learn More
+### Interactive Sessions
 
-To learn more about Next.js, take a look at the following resources:
+Launch a lesson with your chosen companion and engage in real-time voice conversations. The AI tutor will guide you through the topic, breaking it down into smaller parts and ensuring you understand the concepts.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Screenshots
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Hero Image
 
-## Deploy on Vercel
+![Hero Image](./public/readme/hero.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Thumbnail Image
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+![Thumbnail Image](./public/readme/thumbnail.png)
