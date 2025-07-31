@@ -14,8 +14,6 @@ Converso is a cutting-edge AI teaching platform that provides real-time, interac
 
 ## Getting Started
 
-![Thumbnail Image](./public/readme/thumbnail.png)
-
 To get started with Converso, you can explore the companion library, build your own personalized companion, and launch interactive voice lessons.
 
 ### Companion Library
