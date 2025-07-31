@@ -29,9 +29,3 @@ Create a new companion by defining its name, subject, topic, voice, style, and e
 ### Interactive Sessions
 
 Launch a lesson with your chosen companion and engage in real-time voice conversations. The AI tutor will guide you through the topic, breaking it down into smaller parts and ensuring you understand the concepts.
-
-## Screenshots
-
-### Hero Image
-
-### Thumbnail Image
