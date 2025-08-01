@@ -37,14 +37,17 @@ export const createCompanion = async (formData: CreateCompanion) => {
  * @throws Error if fetching companions fails.
  */
 export const getAllCompanions = async ({
-  limit = 10,
+  limit = 9,
   page = 1,
   subject,
   topic,
 }: GetAllCompanions) => {
   const supabase = createSupabaseClient();
 
-  let query = supabase.from("companions").select();
+  let query = supabase
+    .from("companions")
+    .select("*", { count: "exact" })
+    .order("created_at", { ascending: false });
 
   if (subject && topic) {
     query = query
@@ -56,13 +59,20 @@ export const getAllCompanions = async ({
     query = query.or(`topic.ilike.%${topic}%, name.ilike.%${topic}`);
   }
 
-  query = query.range((page - 1) * limit, page * limit - 1);
+  const from = (page - 1) * limit;
+  const to = page * limit - 1;
 
-  const { data: companions, error } = await query;
+  const {
+    data: companions,
+    error,
+    count: totalCount,
+  } = await query.range(from, to);
 
   if (error) throw new Error(error.message);
 
-  return companions;
+  console.log("Total companions found:", totalCount); // Add this line
+
+  return { companions, totalCount };
 };
 
 /**

@@ -31,7 +31,7 @@ const HomePage = async () => {
       {/* Section to display popular companions */}
       <section className="home-section">
         {/* Map through the companions and render a CompanionCard for each */}
-        {companions.map((companion) => (
+        {companions.companions.map((companion) => (
           <CompanionCard
             key={companion.id} // Unique key for each companion card
             {...companion} // Spread all companion properties as props
