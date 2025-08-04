@@ -44,11 +44,13 @@ export const getAllCompanions = async ({
 }: GetAllCompanions) => {
   const supabase = createSupabaseClient();
 
+  // Initialize the Supabase query for the 'companions' table.
   let query = supabase
     .from("companions")
     .select("*", { count: "exact" })
     .order("created_at", { ascending: false });
 
+  // Apply filters based on subject and topic.
   if (subject && topic) {
     query = query
       .ilike("subject", `%${subject}`)
@@ -59,9 +61,11 @@ export const getAllCompanions = async ({
     query = query.or(`topic.ilike.%${topic}%, name.ilike.%${topic}`);
   }
 
+  // Calculate the range for pagination.
   const from = (page - 1) * limit;
   const to = page * limit - 1;
 
+  // Execute the query with the calculated range.
   const {
     data: companions,
     error,

@@ -1,5 +1,6 @@
 // Imports the CompanionCard component for displaying individual companion details.
 import CompanionCard from "@/components/CompanionCard";
+// Imports the PaginationBar component for handling pagination.
 import PaginationBar from "@/components/PaginationBar";
 // Imports the SearchInput component for searching companions.
 import SearchInput from "@/components/SearchInput";
@@ -35,6 +36,7 @@ const CompanionsLibrary = async ({ searchParams }: SearchParams) => {
   const subject = filters.subject ? filters.subject : "";
   // Determines the topic filter from search parameters, defaulting to an empty string if not present.
   const topic = filters.topic ? filters.topic : "";
+  // Determines the current page number from search parameters, defaulting to 1 if not present.
   const page = filters.page ? Number(filters.page) : 1;
 
   // Fetches all companions based on the subject and topic filters.
@@ -46,6 +48,7 @@ const CompanionsLibrary = async ({ searchParams }: SearchParams) => {
   // Fetches companions bookmarked by the current user.
   const bookmarkedCompanions = await getBookmarkedCompanions(user.id);
 
+  // Calculates the total number of pages required for pagination, assuming 9 companions per page.
   const totalPages = Math.ceil(Number(totalCount) / 9);
 
   return (
@@ -77,12 +80,8 @@ const CompanionsLibrary = async ({ searchParams }: SearchParams) => {
           />
         ))}
       </section>
-      <PaginationBar
-        page={page}
-        totalPages={totalPages}
-        subject={subject}
-        topic={topic}
-      />
+      {/* Renders the PaginationBar component to handle page navigation. */}
+      <PaginationBar page={page} totalPages={totalPages} />
     </main>
   );
 };
